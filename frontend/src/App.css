@@ -1,0 +1,10 @@
+body { font-family: sans-serif; background: #f4f4f4; margin: 0; }
+.app { max-width: 600px; margin: 2rem auto; padding: 0 1rem; }
+.error { color: #b00020; }
+.note-form { display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1.5rem; }
+.note-form input, .note-form textarea { padding: 0.5rem; font: inherit; }
+.note-form textarea { min-height: 80px; }
+.note-list { list-style: none; padding: 0; }
+.note-list li { background: white; padding: 1rem; margin-bottom: 0.75rem; border-radius: 6px; }
+.note-list h3 { margin: 0 0 0.25rem; }
+button { margin-right: 0.5rem; padding: 0.4rem 0.8rem; cursor: pointer; }

@@ -1,10 +1,152 @@
-body { font-family: sans-serif; background: #f4f4f4; margin: 0; }
-.app { max-width: 600px; margin: 2rem auto; padding: 0 1rem; }
-.error { color: #b00020; }
-.note-form { display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1.5rem; }
-.note-form input, .note-form textarea { padding: 0.5rem; font: inherit; }
-.note-form textarea { min-height: 80px; }
-.note-list { list-style: none; padding: 0; }
-.note-list li { background: white; padding: 1rem; margin-bottom: 0.75rem; border-radius: 6px; }
-.note-list h3 { margin: 0 0 0.25rem; }
-button { margin-right: 0.5rem; padding: 0.4rem 0.8rem; cursor: pointer; }
+:root {
+    --bg: #f1f5f9;
+    --card: #ffffff;
+    --text: #1e293b;
+    --muted: #64748b;
+    --primary: #4f46e5;
+    --primary-hover: #4338ca;
+    --danger: #dc2626;
+    --danger-hover: #b91c1c;
+    --border: #e2e8f0;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.5;
+}
+
+.app {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 2.5rem 1rem 4rem;
+}
+
+h1 {
+    margin: 0 0 1.5rem;
+    font-size: 2rem;
+    letter-spacing: -0.02em;
+}
+
+.error {
+    background: #fef2f2;
+    color: var(--danger);
+    border: 1px solid #fecaca;
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    margin-bottom: 1rem;
+}
+
+/* form */
+.note-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    background: var(--card);
+    padding: 1.25rem;
+    border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    margin-bottom: 2rem;
+}
+
+.note-form input,
+.note-form textarea {
+    width: 100%;
+    padding: 0.65rem 0.8rem;
+    font: inherit;
+    color: inherit;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: #f8fafc;
+    transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.note-form input:focus,
+.note-form textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+    background: #fff;
+}
+
+.note-form textarea {
+    min-height: 90px;
+    resize: vertical;
+}
+
+/* buttons */
+button {
+    margin-right: 0.5rem;
+    padding: 0.5rem 1rem;
+    font: inherit;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text);
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.15s, border-color 0.15s;
+}
+
+button:hover { background: #f1f5f9; }
+
+.note-form button[type="submit"] {
+    color: #fff;
+    background: var(--primary);
+    border-color: var(--primary);
+}
+
+.note-form button[type="submit"]:hover {
+    background: var(--primary-hover);
+    border-color: var(--primary-hover);
+}
+
+/* note list */
+.note-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.note-list li {
+    background: var(--card);
+    padding: 1.1rem 1.25rem;
+    margin-bottom: 1rem;
+    border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    border-left: 4px solid var(--primary);
+}
+
+.note-list h3 {
+    margin: 0 0 0.35rem;
+    font-size: 1.1rem;
+}
+
+.note-list p {
+    margin: 0 0 0.6rem;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+.note-list small {
+    display: block;
+    margin-bottom: 0.75rem;
+    color: var(--muted);
+}
+
+/* Delete button (the last button inside a note) */
+.note-list li button:last-child {
+    color: var(--danger);
+    border-color: #fecaca;
+}
+
+.note-list li button:last-child:hover {
+    color: #fff;
+    background: var(--danger);
+    border-color: var(--danger);
+}
